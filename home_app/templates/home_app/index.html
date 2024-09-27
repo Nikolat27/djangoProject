@@ -5,26 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <title>Navigation Bar</title>
+    <title>Nikolat27</title>
 </head>
 <body>
 
 <nav class="navbar">
     <div class="navbar-container">
         <div class="navbar-logo">
-            <a href="#">MyApp</a>
+            <a href="{% url "home_app:main" %}">MyApp</a>
         </div>
         <ul class="navbar-links">
-            <li><a href="#send-email">Send Email</a></li>
-            <li><a href="#status">Check Status</a></li>
-            <li><a href="#login">Login</a></li>
-            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="{% url "home_app:send_email" %}">Send Email</a></li>
+            <li><a href="{% url "home_app:email_sent_successfully" %}">Check Status</a></li>
+            <li><a href="{% url "accounts_app:login" %}">Login</a></li>
+            <li><a href="{% url "accounts_app:register" %}">Sign Up</a></li>
         </ul>
     </div>
 </nav>
 
 <div align="center">
-
+    <br>
+    <img src="{% static "images/Django.png" %}" width="400px" height="300px" alt="">
+    <img src="{% static "images/Docker.png" %}" width="400px" height="300px" alt="">
 </div>
 
 </body>

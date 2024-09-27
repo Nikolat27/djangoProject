@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sent Successfully</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>Email Sent Successfully</h1>
+<img src="{% static "images/Redis.png" %}" width="400px" height="150px" alt="redis-image">
+<h4 style="color: red; font-weight: bold;">This information that u are seeing are stored in redis` cache and they will
+    expired in few minutes!</h4>
+<p><strong>Email:</strong> {{ email }}</p>
+<p><strong>Subject:</strong> {{ subject }}</p>
+<p><strong>Message:</strong> {{ message }}</p>
+<br>
+<a href="{% url 'home_app:send_email' %}">Send another email</a>
+<br>
+<a href="{% url 'home_app:main' %}">Main Page</a>
+</body>
+</html>
