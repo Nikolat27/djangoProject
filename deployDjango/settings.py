@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "home_app.apps.HomeAppConfig",
+    "account_app.apps.AccountAppConfig",
     "redis",
 ]
 
@@ -76,7 +77,7 @@ WSGI_APPLICATION = 'deployDjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'testdb1',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '235691gg',
         'HOST': 'localhost',
@@ -126,3 +127,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = "account_app.User"
