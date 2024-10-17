@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os.path
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
@@ -135,10 +134,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "account_app.User"
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = 'redis://redis:6379'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'  # Use Redis as the result backend
+CELERY_RESULT_BACKEND = 'redis://redis:6379'  # Use Redis as the result backend
 CELERY_TIMEZONE = 'UTC'  # Set your timezone
 
 # Optional: Define a task result expiration time (in seconds)
@@ -148,7 +147,7 @@ CELERY_RESULT_EXPIRES = 3600  # 1 hour
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379',  # Use the appropriate Redis instance URL
+        'LOCATION': 'redis://redis:6379',  # Use the appropriate Redis instance URL
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }

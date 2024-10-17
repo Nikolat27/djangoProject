@@ -1,7 +1,7 @@
-# project/celery.py
-
 import os
 from celery import Celery
+
+# celery -A deployDjango worker --loglevel=INFO
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'deployDjango.settings')
 

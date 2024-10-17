@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True # Set your environment variables here
+
+  redis:
+    image: "redis:alpine"
+
+  celery:
+    build: .
+    command: celery -A deployDjango worker --loglevel=INFO
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
