@@ -49,9 +49,6 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True
     )
-    order_count = models.IntegerField(default=0)
-    total_buy = models.FloatField(default=0)
-    is_instructor = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)

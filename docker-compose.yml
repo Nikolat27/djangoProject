@@ -9,7 +9,11 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=True # Set your environment variables here
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=235691gg
+    depends_on:
+      - postgres
 
   redis:
     image: "redis:alpine"
@@ -21,3 +25,17 @@ services:
       - .:/app
     depends_on:
       - redis
+      - postgres
+
+  postgres:
+    image: postgres:13  # Use the version you prefer
+    restart: always
+    environment:
+      POSTGRES_DB: postgres  # The name of the database to create
+      POSTGRES_USER: postgres   # Default user
+      POSTGRES_PASSWORD: 235691gg # Set a strong password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist data
+
+volumes:
+  postgres_data:  # Named volume for persisting postgres data
